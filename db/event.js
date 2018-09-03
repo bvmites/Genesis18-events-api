@@ -16,7 +16,7 @@ module.exports = (db) => ({
         return db.collection('events').find({});
     },
 
-    get: (id) => {
+    getById: (id) => {
         return db.collection('events').findOne({_id: ObjectId(id)});
     }
 });

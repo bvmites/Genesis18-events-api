@@ -72,7 +72,7 @@ module.exports = (db) => {
     //GET /events/{id}
     router.get('/:id', async (request, response) => {
         try {
-            const event = await Event.get(request.params.id);
+            const event = await Event.getById(request.params.id);
             if (event !== null) {
                 response.status(200).json(event);
             } else {

@@ -21,7 +21,7 @@ const auth = require('./middleware/auth');
 dotenv.config();
 (async () => {
 
-    const client = await MongoClient.connect(process.env.DB);
+    const client = await MongoClient.connect(process.env.DB, {useNewUrlParser: true});
     const db = client.db('Genesis-18');
     const userDb = client.db('Genesis-18');
     console.log('Connected to database');

@@ -18,5 +18,9 @@ module.exports = (db) => ({
 
     getById: (id) => {
         return db.collection('events').findOne({_id: ObjectId(id)});
+    },
+
+    delete_one: (id) => {
+        return db.collection('events').deleteOne({_id: ObjectId(id)});
     }
 });

@@ -86,7 +86,7 @@ module.exports = (db) => {
     router.delete('/:id', async (request, response) => {
         try {
             const deleted = await Event.delete_one(request.params.id);
-            console.log(deleted);
+            // console.log(deleted);
             if (deleted.CommandResult.message.Response.parsed === true) {
                 response.status(200).json(event);
             } else {

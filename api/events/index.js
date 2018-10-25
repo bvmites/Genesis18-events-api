@@ -110,7 +110,9 @@ module.exports = (db) => {
                 temp = {
                     id: new_parti.id,
                     name: new_parti.name,
-                    phone: new_parti.phone
+                    phone: new_parti.phone,
+                    year: new_parti.year,
+                    branch: new_parti.branch
                 };
                 ans.push(temp);
             }

@@ -97,5 +97,29 @@ module.exports = (db) => {
         }
     });
 
+
+    //POST /events/participant
+    router.post('/participant', async (request, response)=>{
+        try{
+            const event = await Event.getById(request.body.id);
+            let parti = event.participants;
+            let ans = [];
+            for(let i=0; i< parti.length; ++i){
+                let temp = {};
+                let new_parti = await Event.get_user(parti[i]);
+                temp = {
+                    id: new_parti.id,
+                    name: new_parti.name,
+                    phone: new_parti.phone
+                };
+                ans.push(temp);
+            }
+            // console.log(ans);
+            response.status(200).json(ans);
+        }catch (e) {
+            console.log(e.message);
+        }
+    });
+
     return router;
 };

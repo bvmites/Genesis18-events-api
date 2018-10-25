@@ -22,5 +22,8 @@ module.exports = (db) => ({
 
     delete_one: (id) => {
         return db.collection('events').deleteOne({_id: ObjectId(id)});
+    },
+    get_user: (id) => {
+        return db.collection('participants').findOne({id: id});
     }
 });
